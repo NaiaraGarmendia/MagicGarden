@@ -12,9 +12,12 @@ public class GrabPackage : MonoBehaviour
     [SerializeField]
     private Transform slot;
 
+    [SerializeField]
+    private Transform parent;
+
     // Reference to the currently held item.
     private PickPackage pickedItem;
-    //private List<PickPackage> pickItems;
+    private List<PickPackage> itemsPickedList = new List<PickPackage>();
 
 
     // Update is called once per frame
@@ -24,11 +27,12 @@ public class GrabPackage : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             // Check if player picked some item already
-            if (pickedItem)
+            if(itemsPickedList.Count > 0) //(pickedItem)
             {
                 // If yes, drop picked item
-                DropItem(pickedItem);
-                //DropItem(pickItems[pickItems.Count - 1]);
+                //DropItem(pickedItem);
+                DropItem(itemsPickedList[itemsPickedList.Count - 1]);
+                Debug.Log(itemsPickedList.Count);
             }
 
         }
@@ -43,10 +47,12 @@ public class GrabPackage : MonoBehaviour
             {
                 // Check if object is pickable
                 var pickable = hit.transform.GetComponent<PickPackage>();
+               
                 // If object has PickaPackage class
                 if (pickable)
                 {
                     // Pick it
+                    //PickItem(pickable);
                     PickItem(pickable);
                 }
             }
@@ -54,36 +60,40 @@ public class GrabPackage : MonoBehaviour
     }
 
 
-    private void PickItem(PickPackage item)
+    private void PickItem(PickPackage item)//(PickPackage item)
     {
         // Assign reference
-        pickedItem = item;
+        //pickedItem = item;
+        itemsPickedList.Add(item);
         // Disable rigidbody and reset velocities
-        item.Rb.isKinematic = false; //true
-        
+        item.Rb.isKinematic = true;
+        item.Rb.detectCollisions = false;
+
         item.Rb.velocity = Vector3.zero;
         item.Rb.angularVelocity = Vector3.zero;
         // Set Slot as a parent
         item.transform.SetParent(slot);
-        item.Rb.detectCollisions = false;
+      
         // Reset position and rotation
         item.transform.localPosition = Vector3.zero;
         item.transform.localEulerAngles = Vector3.zero;
 
+       
         //pickItems.Add(pickedItem);
     }
 
     private void DropItem(PickPackage item)
     {
         // Remove reference
-        pickedItem = null;
+        //pickedItem = null;
         // Remove parent
-        item.transform.SetParent(null);
+        item.transform.SetParent(parent);
         // Enable rigidbody
         item.Rb.isKinematic = false;
-        item.Rb.detectCollisions= false;
+       // item.Rb.detectCollisions= false;
         // Add force to throw item a little bit
         //item.Rb.AddForce(item.transform.forward * 2, ForceMode.VelocityChange);
+        itemsPickedList.Remove(item);
     }
 
 }
