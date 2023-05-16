@@ -88,9 +88,9 @@ public class GrabPackage : MonoBehaviour
         //pickedItem = null;
         // Remove parent
         item.transform.SetParent(parent);
-        // Enable rigidbody
+        //Enable rigidbody
         item.Rb.isKinematic = false;
-       // item.Rb.detectCollisions= false;
+        item.Rb.detectCollisions= true;
         // Add force to throw item a little bit
         //item.Rb.AddForce(item.transform.forward * 2, ForceMode.VelocityChange);
         itemsPickedList.Remove(item);
