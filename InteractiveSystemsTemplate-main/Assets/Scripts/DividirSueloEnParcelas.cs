@@ -23,7 +23,7 @@ public class DividirSueloEnParcelas : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         
-        if (other.CompareTag("pickpackage"))
+        if (other.CompareTag("shovel"))
         {
             
           
