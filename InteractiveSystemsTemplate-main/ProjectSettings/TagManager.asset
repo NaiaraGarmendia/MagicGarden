@@ -7,6 +7,7 @@ TagManager:
   - BlendPlane0
   - BlendPlane1
   - pickpackage
+  - shovel
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - UI
   - BlendPlane0
   - BlendPlane1
-  - 
+  - Shovel
   - 
   - 
   - 

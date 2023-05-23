@@ -5,38 +5,47 @@ using UnityEngine;
 public class DividirSueloEnParcelas : MonoBehaviour
 {
     public GameObject prefabParcela; // Prefab de la parcela
-    public Vector3 inicioSuelo; // Punto inicial del suelo
-    public Vector3 finSuelo; // Punto final del suelo
-    public int tamanoParcela = 8; // Tamaño de la parcela
+    public int tamanoParcela; // Tamaño de la parcela
+    
 
-    void Start()
+    private List<Vector3> posicionesParcelas; // Lista de posiciones de las parcelas creadas
+    private Vector3 previousPosition;
+
+   
+
+
+    private void Start()
     {
-        DividirSuelo();
+        posicionesParcelas = new List<Vector3>();
+        previousPosition = transform.position;
     }
 
-    void DividirSuelo()
+    private void OnTriggerStay(Collider other)
     {
-        // Calcular el número de parcelas en cada eje
-        int cantidadParcelasX = Mathf.CeilToInt((finSuelo.x - inicioSuelo.x) / tamanoParcela);
-        int cantidadParcelasZ = Mathf.CeilToInt((finSuelo.z - inicioSuelo.z) / tamanoParcela);
-
-        // Generar las parcelas en las ubicaciones correspondientes
-        for (int x = 0; x < cantidadParcelasX; x++)
+        
+        if (other.CompareTag("pickpackage"))
         {
-            for (int z = 0; z < cantidadParcelasZ; z++)
-            {
-                // Calcular la posición de la parcela
-                Vector3 posicionParcela = new Vector3(
-                    inicioSuelo.x + (x * tamanoParcela) + (tamanoParcela / 2f),
-                    inicioSuelo.y,
-                    inicioSuelo.z + (z * tamanoParcela) + (tamanoParcela / 2f)
-                );
+            
+          
+            // Obtener la posición de la parcela en la que se encuentra el jugador
+            Vector3 posicionParcela = new Vector3(
+                Mathf.Floor(other.transform.position.x / tamanoParcela) * tamanoParcela + (tamanoParcela / 2f),
+                0,
+                Mathf.Floor(other.transform.position.z / tamanoParcela) * tamanoParcela + (tamanoParcela / 2f)
+            );
 
+            // Verificar si la posición de la parcela ya ha sido registrada
+            if (!posicionesParcelas.Contains(posicionParcela))
+            {
                 // Instanciar la parcela en la posición calculada
                 GameObject parcela = Instantiate(prefabParcela, posicionParcela, Quaternion.identity);
                 parcela.transform.localScale = new Vector3(tamanoParcela, 1f, tamanoParcela);
+
+                // Agregar la posición de la parcela a la lista de posiciones registradas
+                posicionesParcelas.Add(posicionParcela);
             }
+        
         }
     }
-}
 
+}
