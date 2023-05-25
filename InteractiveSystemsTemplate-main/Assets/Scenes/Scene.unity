@@ -9169,7 +9169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6698199581553817421, guid: 8849b5cae1d55b942925304c34707d77, type: 3}
       propertyPath: m_TagString
-      value: pickpackage
+      value: shovel
       objectReference: {fileID: 0}
     - target: {fileID: 6698199581553821141, guid: 8849b5cae1d55b942925304c34707d77, type: 3}
       propertyPath: m_Layer
