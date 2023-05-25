@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2810633740227992214}
   - component: {fileID: -5711426284049046090}
   - component: {fileID: -3200715683426482591}
+  - component: {fileID: -1385757631277776791}
   m_Layer: 0
   m_Name: packetseeds
   m_TagString: pickpackage
@@ -126,3 +127,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30fa3fce4925ef14e91e3f9d60b4dbc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1385757631277776791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7832538798362759558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf847886bdbe8434f8ddbd2576a29a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: {x: 0, y: 15, z: 0}
