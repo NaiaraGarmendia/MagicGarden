@@ -23,7 +23,7 @@ public class GrabPackage : MonoBehaviour
     // Reference to the currently held item.
     //private PickPackage pickedItem;
     private List<PickPackage> itemsPickedList = new List<PickPackage>();
-
+    public bool pickedUp = false;
     //timer
     private float totalTime = 5.0f;
     //public float timeLeft = totalTime;
@@ -126,6 +126,7 @@ public class GrabPackage : MonoBehaviour
         // Reset position and rotation
         item.transform.localPosition = Vector3.zero;
         item.transform.localEulerAngles = Vector3.zero;
+        pickedUp = true;
 
         
        
@@ -144,11 +145,12 @@ public class GrabPackage : MonoBehaviour
         item.GetComponent<Rotator>().enabled = false;
 
         itemsPickedList.Remove(item);
+        pickedUp = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("pickpackage") || other.gameObject.CompareTag("shovel"))
+        if (other.gameObject.CompareTag("pickpackage") || other.gameObject.CompareTag("shovel")|| other.gameObject.CompareTag("seeds"))
         {
             PickItem(other.GetComponent<PickPackage>());
         }

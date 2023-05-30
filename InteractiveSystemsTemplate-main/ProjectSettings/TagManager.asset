@@ -8,6 +8,7 @@ TagManager:
   - BlendPlane1
   - pickpackage
   - shovel
+  - seeds
   layers:
   - Default
   - TransparentFX
