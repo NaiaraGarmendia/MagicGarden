@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5638574588096427681}
   - component: {fileID: 5648840493917623533}
   - component: {fileID: 5680832745055721369}
+  - component: {fileID: 5540662300580576673}
   m_Layer: 0
   m_Name: Corn_Plant
   m_TagString: Untagged
@@ -90,9 +91,22 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5635847436439245881}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300012, guid: b69b26c8b73b8bd49bf243bbe541a2e0, type: 3}
+--- !u!114 &5540662300580576673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635847436439245881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a09d2edcb9fb2e41a43299c8899b433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "aumentoDeTama\xF1o": 5

@@ -11,11 +11,7 @@ public class plant : MonoBehaviour
     private Vector3 previousPosition;
     private int count;
 
-   
-    private void Start()
-    {
-        count = 0;
-    }
+
 
     private void OnTriggerEnter(Collider other)
     {
