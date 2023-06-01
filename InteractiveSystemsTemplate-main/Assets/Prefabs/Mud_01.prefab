@@ -109,3 +109,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b535561cf28cc43a59209730044f8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  florPrefab: {fileID: 5635847436439245881, guid: 7c38c73f5b3efc243bf45a52e95cab0b, type: 3}
+  "Tama\xF1oFlor": 1

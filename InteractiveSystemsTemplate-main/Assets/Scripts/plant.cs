@@ -5,21 +5,40 @@ using UnityEngine;
 public class plant : MonoBehaviour
 {
     public GameObject florPrefab;
+    public int TamañoFlor;
 
-    private void OnCollisionEnter(Collision collision)
+    private List<Vector3> posicionFlores; // Lista de posiciones de las parcelas creadas
+    private Vector3 previousPosition;
+    private int count;
+
+   
+    private void Start()
     {
-        if (collision.gameObject.CompareTag("seeds"))
-        {
-            // Verifica si el paquete no está siendo sostenido por el jugador
-            
-            GrabPackage grabPackage = collision.gameObject.GetComponentInParent<GrabPackage>();
+        count = 0;
+    }
 
-            if (grabPackage != null && !grabPackage.pickedUp)
-            {
-                // Instancia la flor en la misma posición que la colisión
-                Instantiate(florPrefab, collision.transform.position, Quaternion.identity);
-            }
-        
+    private void OnTriggerEnter(Collider other)
+    {
+    
+        if (other.gameObject.CompareTag("seeds"))
+        {
+            
+                Vector3 posicionPlant = new Vector3(other.transform.position.x,other.transform.position.y,other.transform.position.z);
+                Debug.Log(posicionPlant + "posicionPlant");
+
+                // Verificar si la posición de la parcela ya ha sido registrada
+                //if (!posicionFlores.Contains(posicionPlant))
+                //{
+                    // Instanciar la parcela en la posición calculada
+                GameObject Flor = Instantiate(florPrefab, posicionPlant, Quaternion.identity);
+                Flor.transform.localScale = new Vector3(TamañoFlor, 1f, TamañoFlor);
+                Debug.Log(Flor.transform.position +"flor"); 
+                other.gameObject.SetActive(false);
+
+
+                    // Agregar la posición de la parcela a la lista de posiciones registradas
+                // posicionFlores.Add(posicionPlant);
+                //}
             
         }
     }   

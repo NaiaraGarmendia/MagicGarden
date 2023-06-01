@@ -86,7 +86,9 @@ public class GrabPackage : MonoBehaviour
             }
             
 
+
         }
+      
 
        // }
         
@@ -127,8 +129,9 @@ public class GrabPackage : MonoBehaviour
         item.transform.localPosition = Vector3.zero;
         item.transform.localEulerAngles = Vector3.zero;
         pickedUp = true;
-
-        
+        if (item.gameObject.CompareTag("seeds")){
+            item.transform.GetComponent<Collider>().enabled = false;
+        }
        
         
     }
@@ -146,6 +149,8 @@ public class GrabPackage : MonoBehaviour
 
         itemsPickedList.Remove(item);
         pickedUp = false;
+
+        item.transform.GetComponent<Collider>().enabled = true;
     }
 
     private void OnTriggerEnter(Collider other)
