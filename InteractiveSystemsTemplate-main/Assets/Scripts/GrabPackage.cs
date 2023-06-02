@@ -16,6 +16,8 @@ public class GrabPackage : MonoBehaviour
     private Transform parent;
 
     public GameObject CanvasTimer;
+    // graphical circle 
+    private Transform GUITimer;
 
     public Camera UICamera;
     public Camera UICamera2;
@@ -24,86 +26,81 @@ public class GrabPackage : MonoBehaviour
     //private PickPackage pickedItem;
     private List<PickPackage> itemsPickedList = new List<PickPackage>();
     public bool pickedUp = false;
-    //timer
-    private float totalTime = 5.0f;
-    //public float timeLeft = totalTime;
-    float timer = 5.0f;
+    //timer of UItimer
+    //private float totalTime = 5.0f;
+    //float timer = 5.0f;
 
     private void Start()
     {
         CanvasTimer.SetActive(false);
+        //StartCoroutine(positionTimer());
+        //child of canvas is the graphical circle 
+        GUITimer = CanvasTimer.transform.GetChild(0);
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        StartCoroutine(positionTimer());
 
-        // If no, try to pick item in front of the player
-        // Create ray from center of the screen
-        /* var ray = characterCamera.ViewportPointToRay(Vector3.one * 0.5f);
-         RaycastHit hit;
-         // Shot ray to find object to pick
-         if (Physics.Raycast(ray, out hit, 1.5f))
-         {
-             // Check if object is pickable
-             var pickable = hit.transform.GetComponent<PickPackage>();
+    }
 
-             // If object has PickaPackage class
-             if (pickable)
-             {
-                 // Pick it
-                 //PickItem(pickable);
-                 PickItem(pickable);
-             }
-         }*/
-        // Execute logic only on button pressed
-        //if (Input.GetKeyDown(KeyCode.R))
+
+    IEnumerator positionTimer()
+    {
+        Vector3 initPos = gameObject.transform.position;
+      
+        // Wait X seconds and take position again
+        yield return new WaitForSeconds(3);
+        //if (playerTimer < 0)
         //{
-
-       
-        // Check if player picked some item already
-        if (itemsPickedList.Count > 0) 
-         {
-            // If yes, wait X seconds and drop
-            timer -= Time.deltaTime;
-            PickPackage lastItem = itemsPickedList[itemsPickedList.Count - 1];
-            if (lastItem.transform.position.z > 50) //change camera for ui timer display
+        Vector3 nextPos = gameObject.transform.position;
+        CanvasTimer.SetActive(false);
+        //if position is the same then show counter
+        if (Vector3.Distance(initPos,nextPos) == 0.0f)
             {
-                SetUITimer(lastItem,UICamera);
+            // Check if player picked some item already
+            if (itemsPickedList.Count > 0)
+                {
+                    // If yes, wait X seconds and drop
+                    //timer -= Time.deltaTime;
+                    PickPackage lastItem = itemsPickedList[itemsPickedList.Count - 1];
+                    if (lastItem.transform.position.z > 50) //change camera for ui timer display
+                    {
+                        SetUITimer(lastItem, UICamera);
+                    }
+                    else
+                    {
+                        SetUITimer(lastItem, UICamera2);
+                    }
+                    //Debug.Log(GUITimer.GetComponent<Timer>().GetRemainingSeconds()+"sec remaining");
+                    if ( GUITimer.GetComponent<Timer>().GetRemainingSeconds() < 0.02 )
+                    {
+
+                        //DropItem(itemsPickedList[itemsPickedList.Count - 1]);
+                        DropItem(lastItem);
+                        Debug.Log("stoppp");
+                       //timer = totalTime;
+                        GUITimer.GetComponent<Timer>().StopTimer();
+
+                    }
+                }
             }
-            else
-            {
-                SetUITimer(lastItem, UICamera2);
-            }
-
-            if (timer < 0)
-            {
-
-                //DropItem(itemsPickedList[itemsPickedList.Count - 1]);
-                DropItem(lastItem);
-                timer = totalTime;
-            }
-            
-
-
-        }
-      
-
        // }
-        
-      
-        }
+
+    }
 
     private void SetUITimer(PickPackage item, Camera camera)
-    {      
-            Transform GUITimer = CanvasTimer.transform.GetChild(0);
+    {
+       
             Vector3 WorldtoScreenVec = camera.WorldToScreenPoint(item.transform.position);
             GUITimer.position = WorldtoScreenVec;
             CanvasTimer.GetComponent<Canvas>().targetDisplay = camera.targetDisplay;
-           
-            GUITimer.GetComponent<Timer>().StartTimer();
             CanvasTimer.SetActive(true);
+            GUITimer.GetComponent<Timer>().StartTimer();
+            Debug.Log("stopppuiii");
+
     }
 
   
@@ -155,7 +152,7 @@ public class GrabPackage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("pickpackage") || other.gameObject.CompareTag("shovel")|| other.gameObject.CompareTag("seeds") || other.gameObject.CompareTag("Whater") )
+        if (other.gameObject.CompareTag("pickpackage") || other.gameObject.CompareTag("shovel")|| other.gameObject.CompareTag("seeds") || other.gameObject.CompareTag("Water") )
         {
             PickItem(other.GetComponent<PickPackage>());
         }

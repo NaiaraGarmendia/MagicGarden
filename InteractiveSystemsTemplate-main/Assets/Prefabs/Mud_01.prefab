@@ -124,5 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a78785ae7b25574db9060c608570e0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabHierba: {fileID: 2272805426748677290, guid: 307ac3498cff4ed4b8a4d05cdf6e51ab, type: 3}
-  "Tama\xF1oHierba": 1
+  prefabHierba:
+  - {fileID: 2272805426748677290, guid: 307ac3498cff4ed4b8a4d05cdf6e51ab, type: 3}
+  - {fileID: 6824044858211179080, guid: 7b261dd36dbb01c4193289f072c26465, type: 3}
+  - {fileID: 1210842862197919486, guid: b71a55781fe94c7448cb542cde685ab8, type: 3}
+  "Tama\xF1oHierba": 5
+  EscalaHierba: 5
