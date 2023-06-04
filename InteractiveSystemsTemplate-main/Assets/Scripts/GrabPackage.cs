@@ -144,6 +144,9 @@ public class GrabPackage : MonoBehaviour
         //Deactivate rotation
         item.GetComponent<Rotator>().enabled = false;
 
+        item.transform.localPosition = new Vector3(item.transform.position.x,
+            0.5f, item.transform.position.z);
+
         itemsPickedList.Remove(item);
         pickedUp = false;
 

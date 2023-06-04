@@ -6,7 +6,7 @@ public class Regar_hierba : MonoBehaviour
 {
     public List<GameObject> prefabHierba = new List<GameObject>(); // Prefab de la parcela
     public float TamañoHierba; // Tamaño de la parcela
-    public float EscalaHierba; // Tamaño de la parcela
+    //public float EscalaHierba; // Tamaño de la parcela
 
     private List<Vector3> posicionHierbas; // Lista de posiciones de las parcelas creadas
     private Vector3 previousPosition;
@@ -20,15 +20,27 @@ public class Regar_hierba : MonoBehaviour
         previousPosition = transform.position;
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         
         
         if (other.CompareTag("Water"))
         {
-           
 
-            //Vector3 HierbaPosicion = new Vector3(other.transform.position.x,other.transform.position.y,other.transform.position.z);
+            growPlants(other);
+
+
+        }
+    }
+
+    private void growPlants(Collider other)
+    {
+        int probGrow = Random.Range(0, 10);
+
+        if (probGrow == 0)
+        {
+
+            //Vector3 HierbaPosicion = new Vector3(other.transform.position.x, other.transform.position.y, other.transform.position.z);
 
             // Obtener la posición de la parcela en la que se encuentra el jugador
             Vector3 HierbaPosicion = new Vector3(
@@ -36,21 +48,20 @@ public class Regar_hierba : MonoBehaviour
                 0,
                 Mathf.Floor(other.transform.position.z / TamañoHierba) * TamañoHierba + (TamañoHierba / 2f)
             );
-            int hierbaRandom = 0;
             // Verificar si la posición de la parcela ya ha sido registrada
             if (!posicionHierbas.Contains(HierbaPosicion))
             {
-                hierbaRandom = Random.Range(0, prefabHierba.Count);
-                Debug.Log(hierbaRandom + "hierbarandom");
+                int hierbaRandom = Random.Range(0, prefabHierba.Count);
+
                 // Instanciar la parcela en la posición calculada
-                GameObject hierba = Instantiate(prefabHierba[hierbaRandom], HierbaPosicion, Quaternion.identity);
-                hierba.transform.localScale = new Vector3(EscalaHierba, 1f, EscalaHierba);
+                GameObject hierba = Instantiate(prefabHierba[hierbaRandom], HierbaPosicion, prefabHierba[hierbaRandom].transform.rotation);
+                //hierba.transform.localScale = new Vector3(EscalaHierba, 1f, EscalaHierba);
 
                 // Agregar la posición de la parcela a la lista de posiciones registradas
                 posicionHierbas.Add(HierbaPosicion);
             }
-        
         }
+
     }
 
 }
