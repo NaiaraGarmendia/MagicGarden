@@ -14,7 +14,8 @@ public class Crecer_plantas : MonoBehaviour
             Transform crecer = gameObject.transform;
             //if size equals limit plant doesn't grow 
             if (Vector3.Distance(crecer.localScale, tamañoMaximo) != 0) { 
-                crecer.localScale += aumentoDeTamaño; //*
+                crecer.localScale += aumentoDeTamaño; 
+                Debug.Log(crecer.localScale);
             }
         }
     }

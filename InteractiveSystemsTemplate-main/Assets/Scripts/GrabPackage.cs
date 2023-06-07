@@ -58,7 +58,7 @@ public class GrabPackage : MonoBehaviour
         Vector3 nextPos = gameObject.transform.position;
         CanvasTimer.SetActive(false);
         //if position is the same then show counter
-        if (Vector3.Distance(initPos,nextPos) < 0.3f)
+        if (Vector3.Distance(initPos,nextPos) < 0.5f)
             {
             // Check if player picked some item already
             if (itemsPickedList.Count > 0)
