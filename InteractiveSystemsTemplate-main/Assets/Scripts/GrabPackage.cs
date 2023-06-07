@@ -56,7 +56,7 @@ public class GrabPackage : MonoBehaviour
         //if (playerTimer < 0)
         //{
         Vector3 nextPos = gameObject.transform.position;
-        CanvasTimer.SetActive(false);
+        //CanvasTimer.SetActive(false);
         //if position is the same then show counter
         if (Vector3.Distance(initPos,nextPos) < 0.5f)
             {
@@ -74,7 +74,7 @@ public class GrabPackage : MonoBehaviour
                     {
                         SetUITimer(lastItem, UICamera2);
                     }
-                    //Debug.Log(GUITimer.GetComponent<Timer>().GetRemainingSeconds()+"sec remaining");
+                //Debug.Log(GUITimer.GetComponent<Timer>().GetRemainingSeconds()+"sec remaining");
                     if ( GUITimer.GetComponent<Timer>().GetRemainingSeconds() < 0.02 )
                     {
 
@@ -104,7 +104,7 @@ public class GrabPackage : MonoBehaviour
     }
 
   
-    private void PickItem(PickPackage item)//(PickPackage item)
+    private void PickItem(PickPackage item)
     {
         // Assign reference
         //pickedItem = item;

@@ -17,6 +17,11 @@ public class Crecer_plantas : MonoBehaviour
                 crecer.localScale += aumentoDeTamaño; 
                 Debug.Log(crecer.localScale);
             }
+            else
+            {  //if this is not done then player can't harvest the plant
+                gameObject.GetComponent<Collider>().isTrigger = false;
+
+            }
         }
     }
   
