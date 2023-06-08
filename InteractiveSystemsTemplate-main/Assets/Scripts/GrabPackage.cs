@@ -30,6 +30,9 @@ public class GrabPackage : MonoBehaviour
     //private float totalTime = 5.0f;
     //float timer = 5.0f;
 
+    public GameObject verdura;
+    public Vector3 tamañomaximo;
+
     private void Start()
     {
         CanvasTimer.SetActive(false);
@@ -56,7 +59,7 @@ public class GrabPackage : MonoBehaviour
         //if (playerTimer < 0)
         //{
         Vector3 nextPos = gameObject.transform.position;
-        //CanvasTimer.SetActive(false);
+        CanvasTimer.SetActive(false);
         //if position is the same then show counter
         if (Vector3.Distance(initPos,nextPos) < 0.5f)
             {
@@ -75,7 +78,7 @@ public class GrabPackage : MonoBehaviour
                         SetUITimer(lastItem, UICamera2);
                     }
                 //Debug.Log(GUITimer.GetComponent<Timer>().GetRemainingSeconds()+"sec remaining");
-                    if ( GUITimer.GetComponent<Timer>().GetRemainingSeconds() < 0.02 )
+                    if ( GUITimer.GetComponent<Timer>().GetRemainingSeconds() < 0.3f )//0.02
                     {
 
                         //DropItem(itemsPickedList[itemsPickedList.Count - 1]);
@@ -158,6 +161,14 @@ public class GrabPackage : MonoBehaviour
         if (other.gameObject.CompareTag("pickpackage") || other.gameObject.CompareTag("shovel")|| other.gameObject.CompareTag("seeds") || other.gameObject.CompareTag("Water") )
         {
             PickItem(other.GetComponent<PickPackage>());
+        }else if (other.gameObject.CompareTag("plant"))
+        {
+            Debug.Log("enter");
+            if (other.transform.localScale == tamañomaximo)
+            {
+                GameObject Flor = Instantiate(verdura, gameObject.transform.position, Quaternion.identity);
+            }
+
         }
     }
 }

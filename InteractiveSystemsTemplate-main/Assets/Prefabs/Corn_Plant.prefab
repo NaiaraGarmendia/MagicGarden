@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5648840493917623533}
   - component: {fileID: 5680832745055721369}
   - component: {fileID: 5540662300580576673}
-  - component: {fileID: -8555897242002802052}
   m_Layer: 0
   m_Name: Corn_Plant
   m_TagString: plant
@@ -112,17 +111,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   "aumentoDeTama\xF1o": {x: 0.5, y: 0.5, z: 0.5}
   "tama\xF1oMaximo": {x: 3, y: 3, z: 3}
---- !u!114 &-8555897242002802052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5635847436439245881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1177c268d0031944cb8c22459dfbf296, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  verdura: {fileID: 0}
-  "tama\xF1omaximo": {x: 3, y: 3, z: 3}
