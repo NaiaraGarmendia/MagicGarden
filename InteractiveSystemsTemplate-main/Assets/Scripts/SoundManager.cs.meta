@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 06d632ee1fc59d34b97774e9aa365181
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Watering: {fileID: 8300000, guid: d2cf7ecf8c885664fb5ca89d1736617a, type: 3}
+  - tierra: {fileID: 8300000, guid: c703b5541f5549a418e6c254ffe37883, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

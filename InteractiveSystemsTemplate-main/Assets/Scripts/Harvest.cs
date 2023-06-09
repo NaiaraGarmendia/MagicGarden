@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Harvest : MonoBehaviour
 {
-    public GameObject verdura;
+    public GameObject corn;
+    public GameObject tomato;
+    public GameObject carrot;
     public Vector3 tamañomaximo;
+    public Transform sueloTransform;
     
     private void OnTriggerEnter(Collider other)
     {
@@ -14,8 +17,19 @@ public class Harvest : MonoBehaviour
             Debug.Log("enter");
             if(other.transform.localScale == tamañomaximo)
             {
-                GameObject Flor = Instantiate(verdura, gameObject.transform.position, Quaternion.identity);
-                other.gameObject.SetActive(false);
+             
+                if(gameObject.transform.position.z < 27f){
+                    GameObject Corn = Instantiate(corn, gameObject.transform.position, Quaternion.identity);
+                    other.gameObject.SetActive(false);
+                }
+                else if(gameObject.transform.position.z < 48f){
+                    GameObject Carrot = Instantiate(carrot, gameObject.transform.position, Quaternion.identity);
+                    other.gameObject.SetActive(false);
+                }
+                else{
+                    GameObject Tomato = Instantiate(tomato, gameObject.transform.position, Quaternion.identity);
+                    other.gameObject.SetActive(false);
+                }
             }
 
         }

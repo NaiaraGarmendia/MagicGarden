@@ -29,6 +29,8 @@ public class GrabPackage : MonoBehaviour
     //timer of UItimer
     //private float totalTime = 5.0f;
     //float timer = 5.0f;
+    private Vector3 posIniWhater;
+    private Vector3 posIniHoe;
 
     //public GameObject verdura;
     //public Vector3 tamañomaximo;
@@ -39,6 +41,7 @@ public class GrabPackage : MonoBehaviour
         //StartCoroutine(positionTimer());
         //child of canvas is the graphical circle 
         GUITimer = CanvasTimer.transform.GetChild(0);
+
     }
 
 

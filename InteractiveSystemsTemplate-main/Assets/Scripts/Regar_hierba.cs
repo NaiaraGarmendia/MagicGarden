@@ -26,7 +26,7 @@ public class Regar_hierba : MonoBehaviour
         
         if (other.CompareTag("Water"))
         {
-
+            SoundManager.Instance.PlayWater();
             growPlants(other);
 
 

@@ -40,7 +40,7 @@ public class DividirSueloEnParcelas : MonoBehaviour
                 // Instanciar la parcela en la posición calculada
                 GameObject parcela = Instantiate(prefabParcela, posicionParcela, Quaternion.identity);
                 parcela.transform.localScale = new Vector3(tamanoParcela, 1f, tamanoParcela);
-
+                SoundManager.Instance.Playtierra();
                 // Agregar la posición de la parcela a la lista de posiciones registradas
                 posicionesParcelas.Add(posicionParcela);
             }

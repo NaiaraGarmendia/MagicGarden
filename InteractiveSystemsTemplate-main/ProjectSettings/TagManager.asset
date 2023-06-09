@@ -10,9 +10,8 @@ TagManager:
   - shovel
   - seeds
   - Water
-  - Player1
-  - Player3
   - plant
+  - mud
   layers:
   - Default
   - TransparentFX
