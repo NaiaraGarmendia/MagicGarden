@@ -15,8 +15,9 @@ public class Harvest : MonoBehaviour
             if(other.transform.localScale == tamañomaximo)
             {
                 GameObject Flor = Instantiate(verdura, gameObject.transform.position, Quaternion.identity);
+                other.gameObject.SetActive(false);
             }
-           
+
         }
        
     }

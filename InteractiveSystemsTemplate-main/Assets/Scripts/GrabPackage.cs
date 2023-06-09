@@ -30,8 +30,8 @@ public class GrabPackage : MonoBehaviour
     //private float totalTime = 5.0f;
     //float timer = 5.0f;
 
-    public GameObject verdura;
-    public Vector3 tamañomaximo;
+    //public GameObject verdura;
+    //public Vector3 tamañomaximo;
 
     private void Start()
     {
@@ -161,7 +161,7 @@ public class GrabPackage : MonoBehaviour
         if (other.gameObject.CompareTag("pickpackage") || other.gameObject.CompareTag("shovel")|| other.gameObject.CompareTag("seeds") || other.gameObject.CompareTag("Water") )
         {
             PickItem(other.GetComponent<PickPackage>());
-        }else if (other.gameObject.CompareTag("plant"))
+        }/*else if (other.gameObject.CompareTag("plant"))
         {
             Debug.Log("enter");
             if (other.transform.localScale == tamañomaximo)
@@ -169,6 +169,6 @@ public class GrabPackage : MonoBehaviour
                 GameObject Flor = Instantiate(verdura, gameObject.transform.position, Quaternion.identity);
             }
 
-        }
+        }*/
     }
 }
