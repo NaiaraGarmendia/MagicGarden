@@ -19,15 +19,15 @@ public class Harvest : MonoBehaviour
             {
              
                 if(gameObject.transform.position.z < 27f){
-                    GameObject Corn = Instantiate(corn, gameObject.transform.position, Quaternion.identity);
+                    GameObject Corn = Instantiate(corn, gameObject.transform.position,corn.transform.rotation);
                     other.gameObject.SetActive(false);
                 }
                 else if(gameObject.transform.position.z < 48f){
-                    GameObject Carrot = Instantiate(carrot, gameObject.transform.position, Quaternion.identity);
+                    GameObject Carrot = Instantiate(carrot, gameObject.transform.position,carrot.transform.rotation);
                     other.gameObject.SetActive(false);
                 }
                 else{
-                    GameObject Tomato = Instantiate(tomato, gameObject.transform.position, Quaternion.identity);
+                    GameObject Tomato = Instantiate(tomato, gameObject.transform.position, tomato.transform.rotation);
                     other.gameObject.SetActive(false);
                 }
             }

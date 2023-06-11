@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1953813338310800430}
   - component: {fileID: 1961843029899040516}
   - component: {fileID: 1984737342375866238}
-  - component: {fileID: -3528342718394213122}
   m_Layer: 0
   m_Name: Turnip_Plant
   m_TagString: Untagged
@@ -97,17 +96,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300020, guid: b69b26c8b73b8bd49bf243bbe541a2e0, type: 3}
---- !u!114 &-3528342718394213122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975925980529994378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1177c268d0031944cb8c22459dfbf296, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  verdura: {fileID: 0}
-  "tama\xF1omaximo": {x: 0, y: 0, z: 0}

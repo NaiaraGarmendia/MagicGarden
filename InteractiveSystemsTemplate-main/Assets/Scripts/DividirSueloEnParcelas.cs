@@ -11,7 +11,7 @@ public class DividirSueloEnParcelas : MonoBehaviour
     private List<Vector3> posicionesParcelas; // Lista de posiciones de las parcelas creadas
     private Vector3 previousPosition;
 
-   
+    //public AudioClip tierra;
 
 
     private void Start()
@@ -26,6 +26,7 @@ public class DividirSueloEnParcelas : MonoBehaviour
         if (other.CompareTag("shovel"))
         {
             
+
           
             // Obtener la posición de la parcela en la que se encuentra el jugador
             Vector3 posicionParcela = new Vector3(
@@ -37,10 +38,11 @@ public class DividirSueloEnParcelas : MonoBehaviour
             // Verificar si la posición de la parcela ya ha sido registrada
             if (!posicionesParcelas.Contains(posicionParcela))
             {
+                
                 // Instanciar la parcela en la posición calculada
                 GameObject parcela = Instantiate(prefabParcela, posicionParcela, Quaternion.identity);
                 parcela.transform.localScale = new Vector3(tamanoParcela, 1f, tamanoParcela);
-                SoundManager.Instance.Playtierra();
+                playSoundRand();
                 // Agregar la posición de la parcela a la lista de posiciones registradas
                 posicionesParcelas.Add(posicionParcela);
             }
@@ -48,4 +50,13 @@ public class DividirSueloEnParcelas : MonoBehaviour
         }
     }
 
+    private void playSoundRand()
+    {
+        int probGrow = Random.Range(0, 10);
+
+        if (probGrow == 0)
+        {
+            SoundManager.Instance.Playtierra();
+        }
+    }
 }

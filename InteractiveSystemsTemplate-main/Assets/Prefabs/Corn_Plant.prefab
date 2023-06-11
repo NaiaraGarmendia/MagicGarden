@@ -128,3 +128,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   "aumentoDeTama\xF1o": {x: 0.5, y: 0.5, z: 0.5}
   "tama\xF1oMaximo": {x: 3, y: 3, z: 3}
+  Watering: {fileID: 8300000, guid: d2cf7ecf8c885664fb5ca89d1736617a, type: 3}

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2375403544643409134}
   m_Layer: 0
   m_Name: Corn_Fruit
-  m_TagString: Untagged
+  m_TagString: pickpackage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6687530111754274676}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 16.723732, y: -1.5000038, z: 36.911854}
-  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &6681180072291636292
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300014, guid: b69b26c8b73b8bd49bf243bbe541a2e0, type: 3}
 --- !u!54 &-2777674521187771337
