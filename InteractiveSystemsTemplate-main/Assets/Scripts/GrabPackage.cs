@@ -59,7 +59,7 @@ public class GrabPackage : MonoBehaviour
              Vector3 initPos = gameObject.transform.position;
 
              // Wait X seconds and take position again
-             yield return new WaitForSeconds(3f);
+             yield return new WaitForSeconds(0.3f);
 
              Vector3 nextPos = gameObject.transform.position;
              CanvasTimer.SetActive(false);
@@ -94,7 +94,7 @@ public class GrabPackage : MonoBehaviour
       
             
            
-            if (GUITimer.GetComponent<Timer>().timeRemaining < 0.2)
+            if (GUITimer.GetComponent<Timer>().timeRemaining < 0.3)
             {
 
                 
