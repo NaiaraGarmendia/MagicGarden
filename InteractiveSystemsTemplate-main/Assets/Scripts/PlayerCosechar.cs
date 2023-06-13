@@ -58,7 +58,7 @@ public class PlayerCosechar : MonoBehaviour
         Debug.Log(player1encima);
         Debug.Log(player2encima);
         Debug.Log(transform.localScale);
-        //if (player1encima && player2encima && plant.transform.localScale == tamañomaximo)
+      
         if (plant.transform.localScale == tamañomaximo)
         {
             // Ambos jugadores están en colisión y el prefab está en su tamaño máximo

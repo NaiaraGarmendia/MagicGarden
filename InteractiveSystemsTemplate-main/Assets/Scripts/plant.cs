@@ -22,9 +22,7 @@ public class plant : MonoBehaviour
                 Vector3 posicionPlant = new Vector3(other.transform.position.x,other.transform.position.y,other.transform.position.z);
                 Debug.Log(posicionPlant + "posicionPlant");
 
-                // Verificar si la posición de la parcela ya ha sido registrada
-                //if (!posicionFlores.Contains(posicionPlant))
-                //{
+            
                     // Instanciar la parcela en la posición calculada
                 GameObject Flor = Instantiate(florPrefab, posicionPlant, Quaternion.identity);
                 Flor.transform.localScale = new Vector3(TamañoFlor, 1f, TamañoFlor);
@@ -32,9 +30,7 @@ public class plant : MonoBehaviour
                 other.gameObject.SetActive(false);
 
 
-                    // Agregar la posición de la parcela a la lista de posiciones registradas
-                // posicionFlores.Add(posicionPlant);
-                //}
+                   
             
         }
     }   

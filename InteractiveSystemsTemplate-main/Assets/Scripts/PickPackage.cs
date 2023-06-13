@@ -26,18 +26,5 @@ public class PickPackage : MonoBehaviour
         cl.enabled = true;
     }
 
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            //dropdown = true;
-            Destroy(cl);
-        }
-    }
     
-
-    private void OnTriggerExit(Collider other)
-    {
-        _ = gameObject.AddComponent<MeshCollider>();
-    }*/
 }

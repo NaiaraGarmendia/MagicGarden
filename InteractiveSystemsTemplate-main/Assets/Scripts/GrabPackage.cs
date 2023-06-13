@@ -23,22 +23,18 @@ public class GrabPackage : MonoBehaviour
     public Camera UICamera2;
 
     // Reference to the currently held item.
-    //private PickPackage pickedItem;
+   
     private List<PickPackage> itemsPickedList = new List<PickPackage>();
     public bool pickedUp = false;
-    //timer of UItimer
-    //private float totalTime = 5.0f;
-    float timer = 3.0f;
 
-    //public GameObject verdura;
-    //public Vector3 tamañomaximo;
+  
 
     bool RoutineOn = true;
 
     private void Start()
     {
         CanvasTimer.SetActive(false);
-        //StartCoroutine(positionTimer());
+      
         //child of canvas is the graphical circle 
         GUITimer = CanvasTimer.transform.GetChild(0);
         StartCoroutine(CheckPosition());
@@ -52,38 +48,7 @@ public class GrabPackage : MonoBehaviour
 
     }
 
-    /*private void CheckPosition()
-    {
-       
-            
-        Vector3 initPos = gameObject.transform.position;
-
-        // Wait X seconds and take position again
-        //yield return new WaitForSeconds(3);
-
-        // If yes, wait X seconds and drop
-        timer -= Time.deltaTime;
-        Debug.Log("time"+timer);
-
-        //CanvasTimer.SetActive(false);
-        if (timer < 0.0f)
-        {
-            Debug.Log("routine");
-            timer = 3.0f;
-            Vector3 nextPos = gameObject.transform.position;
-            CanvasTimer.SetActive(false);
-
-            //if position is the same then show counter
-            if (Vector3.Distance(initPos, nextPos) < 0.5f)
-            {
-                // RoutineOn = false;
-                useTimer();
-                // yield return null;
-            }
-        }
-
-    }*/
-
+   
 
 
      IEnumerator CheckPosition()
@@ -116,7 +81,7 @@ public class GrabPackage : MonoBehaviour
         if (itemsPickedList.Count > 0)
         {
             // If yes, wait X seconds and drop
-            //timer -= Time.deltaTime;
+          
             PickPackage lastItem = itemsPickedList[itemsPickedList.Count - 1];
             if (lastItem.transform.position.z > 50) //change camera for ui timer display
             {
@@ -126,31 +91,22 @@ public class GrabPackage : MonoBehaviour
             {
                 SetUITimer(lastItem, UICamera2);
             }
-           // Debug.Log(GUITimer.GetComponent<Timer>().GetRemainingSeconds()+"sec remaining");
-
-            //if (GUITimer.GetComponent<Timer>().GetRemainingSeconds()<0.02) //< 0.3f)//0.02
-
-            // If yes, wait X seconds and drop
-            
-            //timer -= Time.deltaTime;
-            //Debug.Log("time" + timer);
+      
             
            
             if (GUITimer.GetComponent<Timer>().timeRemaining < 0.2)
             {
 
-                //timer = 3.0f;
-                //DropItem(itemsPickedList[itemsPickedList.Count - 1]);
+                
+     
                 DropItem(lastItem);
-                //Debug.Log("stoppp");
-                //timer = totalTime;
+                
                 GUITimer.GetComponent<Timer>().StopTimer();
-                // RoutineOn = true;
-                // StartCoroutine(CheckPosition());
+              
             
             }
            
-            //CanvasTimer.SetActive(false);
+          
           
 
         }
@@ -158,52 +114,7 @@ public class GrabPackage : MonoBehaviour
 
 
 
-   /* IEnumerator positionTimer()
-    {
-        Vector3 initPos = gameObject.transform.position;
-      
-        // Wait X seconds and take position again
-        yield return new WaitForSeconds(3);
-        //if (playerTimer < 0)
-        //{
-        Vector3 nextPos = gameObject.transform.position;
-        CanvasTimer.SetActive(false);
    
-            //if position is the same then show counter
-       if (Vector3.Distance(initPos,nextPos) < 0.5f)
-            {
-
-            // Check if player picked some item already
-            if (itemsPickedList.Count > 0)
-                {
-                // If yes, wait X seconds and drop
-                //timer -= Time.deltaTime;
-                PickPackage lastItem = itemsPickedList[itemsPickedList.Count - 1];
-                    if (lastItem.transform.position.z > 50) //change camera for ui timer display
-                    {
-                        SetUITimer(lastItem, UICamera);
-                    }
-                    else
-                    {
-                        SetUITimer(lastItem, UICamera2);
-                    }
-                //Debug.Log(GUITimer.GetComponent<Timer>().GetRemainingSeconds()+"sec remaining");
-                    if ( GUITimer.GetComponent<Timer>().GetRemainingSeconds() < 0.3f )//0.02
-                    {
-
-                        //DropItem(itemsPickedList[itemsPickedList.Count - 1]);
-                        DropItem(lastItem);
-                        Debug.Log("stoppp");
-                       //timer = totalTime;
-                        GUITimer.GetComponent<Timer>().StopTimer();
-
-                    }
-                }
-            }
-       // }
-
-    }*/
-
     private void SetUITimer(PickPackage item, Camera camera)
     {
        
@@ -220,7 +131,7 @@ public class GrabPackage : MonoBehaviour
     private void PickItem(PickPackage item)
     {
         // Assign reference
-        //pickedItem = item;
+       
         SoundManager.Instance.Playpickup();
         itemsPickedList.Add(item);
 
@@ -231,7 +142,7 @@ public class GrabPackage : MonoBehaviour
         }
         // Disable rigidbody and reset velocities
         item.Rb.isKinematic = true;
-        //item.Rb.detectCollisions = false;
+       
 
         item.Rb.velocity = Vector3.zero;
         item.Rb.angularVelocity = Vector3.zero;

@@ -11,7 +11,7 @@ public class DividirSueloEnParcelas : MonoBehaviour
     private List<Vector3> posicionesParcelas; // Lista de posiciones de las parcelas creadas
     private Vector3 previousPosition;
 
-    //public AudioClip tierra;
+
 
 
     private void Start()
@@ -50,21 +50,11 @@ public class DividirSueloEnParcelas : MonoBehaviour
                 // Instanciar la parcela en la posición calculada
                 GameObject parcela = Instantiate(prefabParcela, posicionParcela, Quaternion.identity);
                 parcela.transform.localScale = new Vector3(tamanoParcela, 1f, tamanoParcela);
-               // playSoundRand();
+             
                 // Agregar la posición de la parcela a la lista de posiciones registradas
                 posicionesParcelas.Add(posicionParcela);
             }
         
-        }
-    }
-
-    private void playSoundRand()
-    {
-        int probGrow = Random.Range(0, 10);
-
-        if (probGrow == 0)
-        {
-            SoundManager.Instance.Playtierra();
         }
     }
 }
