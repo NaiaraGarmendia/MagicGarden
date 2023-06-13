@@ -48,9 +48,7 @@ public class GrabPackage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //StartCoroutine(positionTimer());
-
-        //CheckPosition();
+        
 
     }
 
@@ -255,7 +253,6 @@ public class GrabPackage : MonoBehaviour
     {
         SoundManager.Instance.Playdrop();
         CanvasTimer.SetActive(false);
-        //pickedItem = null;
         // Remove parent
         item.transform.SetParent(parent);
 
@@ -279,14 +276,6 @@ public class GrabPackage : MonoBehaviour
         if (other.gameObject.CompareTag("pickpackage") || other.gameObject.CompareTag("shovel")|| other.gameObject.CompareTag("seeds") || other.gameObject.CompareTag("Water") )
         {
             PickItem(other.GetComponent<PickPackage>());
-        }/*else if (other.gameObject.CompareTag("plant"))
-        {
-            Debug.Log("enter");
-            if (other.transform.localScale == tamañomaximo)
-            {
-                GameObject Flor = Instantiate(verdura, gameObject.transform.position, Quaternion.identity);
-            }
-
-        }*/
+        }
     }
 }

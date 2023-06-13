@@ -26,7 +26,7 @@ public class Regar_hierba : MonoBehaviour
         
         if (other.CompareTag("Water"))
         {
-            SoundManager.Instance.PlayWater();
+            
             growPlants(other);
 
 
@@ -40,7 +40,7 @@ public class Regar_hierba : MonoBehaviour
         if (probGrow == 0)
         {
 
-            //Vector3 HierbaPosicion = new Vector3(other.transform.position.x, other.transform.position.y, other.transform.position.z);
+           
 
             // Obtener la posición de la parcela en la que se encuentra el jugador
             Vector3 HierbaPosicion = new Vector3(

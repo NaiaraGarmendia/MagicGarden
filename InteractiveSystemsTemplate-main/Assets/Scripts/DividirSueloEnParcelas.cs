@@ -20,6 +20,14 @@ public class DividirSueloEnParcelas : MonoBehaviour
         previousPosition = transform.position;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("shovel"))
+        {
+            SoundManager.Instance.Playtierra();
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         
@@ -42,7 +50,7 @@ public class DividirSueloEnParcelas : MonoBehaviour
                 // Instanciar la parcela en la posición calculada
                 GameObject parcela = Instantiate(prefabParcela, posicionParcela, Quaternion.identity);
                 parcela.transform.localScale = new Vector3(tamanoParcela, 1f, tamanoParcela);
-                playSoundRand();
+               // playSoundRand();
                 // Agregar la posición de la parcela a la lista de posiciones registradas
                 posicionesParcelas.Add(posicionParcela);
             }

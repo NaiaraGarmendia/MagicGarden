@@ -12,17 +12,21 @@ public class Crecer_plantas : MonoBehaviour
 
         if (other.gameObject.CompareTag("Water"))
         {
-            //AudioSource.PlayClipAtPoint(Watering, gameObject.transform.position);
+           
             Transform crecer = gameObject.transform;
             //if size equals limit plant doesn't grow 
             if (Vector3.Distance(crecer.localScale, tamañoMaximo) != 0) { 
                 crecer.localScale += aumentoDeTamaño; 
                 Debug.Log(crecer.localScale);
+                SoundManager.Instance.PlayWater();
+                if (Vector3.Distance(crecer.localScale, tamañoMaximo) == 0)
+                {
+                    SoundManager.Instance.PlayHarvest();
+                }
             }
             else
             {  //if this is not done then player can't harvest the plant
                 gameObject.GetComponent<Collider>().isTrigger = false;
-                SoundManager.Instance.PlayHarvest();
             }
         }
     }
