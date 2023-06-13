@@ -184,7 +184,7 @@ public class GrabPackage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("pickpackage") || other.gameObject.CompareTag("shovel")|| other.gameObject.CompareTag("seeds") || other.gameObject.CompareTag("Water") )
+        if (other.gameObject.CompareTag("pickpackage") || other.gameObject.CompareTag("shovel")|| other.gameObject.CompareTag("seeds") || other.gameObject.CompareTag("Water") || other.gameObject.CompareTag("corn")|| other.gameObject.CompareTag("carrot")|| other.gameObject.CompareTag("tomato") )
         {
             PickItem(other.GetComponent<PickPackage>());
         }

@@ -12,6 +12,9 @@ TagManager:
   - Water
   - plant
   - mud
+  - corn
+  - carrot
+  - tomato
   layers:
   - Default
   - TransparentFX

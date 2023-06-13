@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2375403544643409134}
   m_Layer: 0
   m_Name: Corn_Fruit
-  m_TagString: pickpackage
+  m_TagString: corn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +92,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6687530111754274676}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
