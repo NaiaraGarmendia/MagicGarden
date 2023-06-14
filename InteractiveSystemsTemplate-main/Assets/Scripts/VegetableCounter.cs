@@ -55,6 +55,9 @@ public class VegetableCounter : MonoBehaviour
         if (carrotCount <= 0 && tomatoCount <= 0 && cornCount <= 0)
         {
             ResetCounters();
+            cornCounter.text = cornCount.ToString();
+            carrotCounter.text = carrotCount.ToString();
+            tomatoCounter.text = tomatoCount.ToString();
         }
     }
 
@@ -65,6 +68,7 @@ public class VegetableCounter : MonoBehaviour
         cornCount = cornPrefab != null ? Random.Range(1, 2) : 0;
 
         Debug.Log("Counters reset! Carrot count: " + carrotCount + ", Tomato count: " + tomatoCount + ", Corn count: " + cornCount);
+      
     }
 }
 
