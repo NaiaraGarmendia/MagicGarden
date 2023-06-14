@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 
 public class VegetableCounter : MonoBehaviour
@@ -10,6 +10,10 @@ public class VegetableCounter : MonoBehaviour
     public GameObject tomatoPrefab;
     public GameObject cornPrefab;
 
+    public Text tomatoCounter;
+    public Text cornCounter;
+    public Text carrotCounter;
+
     private int carrotCount;
     private int tomatoCount;
     private int cornCount;
@@ -17,6 +21,9 @@ public class VegetableCounter : MonoBehaviour
     private void Start()
     {
         ResetCounters();
+        tomatoCounter.text = tomatoCount.ToString();
+        carrotCounter.text = carrotCount.ToString();
+        cornCounter.text = cornCount.ToString();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,16 +32,23 @@ public class VegetableCounter : MonoBehaviour
         {
             carrotCount--;
             Debug.Log("Carrot collided! Carrot count: " + carrotCount);
+            carrotCounter.text = carrotCount.ToString();
+            SoundManager.Instance.PlayHarvest();
+
         }
         else if (other.CompareTag("tomato"))
         {
             tomatoCount--;
             Debug.Log("Tomato collided! Tomato count: " + tomatoCount);
+            tomatoCounter.text =  tomatoCount.ToString();
+            SoundManager.Instance.PlayHarvest();
         }
         else if (other.CompareTag("corn"))
         {
             cornCount--;
             Debug.Log("Corn collided! Corn count: " + cornCount);
+            cornCounter.text = cornCount.ToString();
+            SoundManager.Instance.PlayHarvest();
         }
 
         // Verificar si todas las verduras han alcanzado el contador cero
